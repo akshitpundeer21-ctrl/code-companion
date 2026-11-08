@@ -63,7 +63,7 @@ export default function Trust() {
                     </div>
                     <blockquote className="text-lg leading-relaxed text-cream">“{t.quote}”</blockquote>
                     <figcaption className="mt-4 flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft font-display text-sm text-accent">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft font-display text-sm text-accent-ink">
                         {t.name.charAt(0)}
                       </span>
                       <div>
@@ -93,7 +93,7 @@ export default function Trust() {
               {INTEGRATIONS.map((int, i) => (
                 <Reveal key={int.name} delay={(i % 3) * 0.06}>
                   <div className="flex items-center gap-3 rounded-2xl border border-line bg-panel/60 p-4 transition-colors hover:border-accent/40">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-accent">{int.icon}</span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-accent-ink">{int.icon}</span>
                     <span className="text-sm font-medium text-cream-dim">{int.name}</span>
                   </div>
                 </Reveal>

@@ -29,7 +29,7 @@ export default function WhoWeHelp() {
           {GROUPS.map((g, i) => (
             <Reveal key={g.title} delay={(i % 3) * 0.08}>
               <div className="group h-full rounded-2xl border border-line bg-panel/60 p-6 transition-all duration-300 hover:border-accent/40 hover:bg-panel">
-                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-lg text-accent transition-transform duration-300 group-hover:scale-110">
+                <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-lg text-accent-ink transition-transform duration-300 group-hover:scale-110">
                   {g.icon}
                 </span>
                 <h3 className="text-lg font-medium text-cream">{g.title}</h3>

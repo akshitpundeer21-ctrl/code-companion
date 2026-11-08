@@ -45,7 +45,7 @@ export default function WhyEmiNara() {
                 <Reveal key={p.num} delay={i * 0.05}>
                   <div className="group border-b border-line-soft py-7 transition-all duration-300 hover:px-3">
                     <div className="flex items-start gap-6">
-                      <span className="font-display text-sm font-semibold text-accent">{p.num}</span>
+                      <span className="font-display text-sm font-semibold text-accent-ink">{p.num}</span>
                       <div>
                         <h3 className="text-2xl font-medium text-cream transition-colors group-hover:text-accent sm:text-3xl">{p.title}</h3>
                         <p className="mt-2 max-w-md text-sm leading-relaxed text-cream-dim sm:text-base">{p.desc}</p>

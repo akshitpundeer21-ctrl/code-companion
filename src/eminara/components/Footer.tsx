@@ -36,17 +36,17 @@ export default function Footer() {
             </p>
             <div className="mt-6 space-y-2 text-sm text-cream-dim">
               <p className="flex items-center gap-2">
-                <span className="text-accent">✉</span> info@eminaraai.com
+                <span className="text-accent-ink">✉</span> info@eminaraai.com
               </p>
               <p className="flex items-center gap-2">
-                <span className="text-accent">☏</span> +1 (555) 000-0000
+                <span className="text-accent-ink">☏</span> +1 (555) 000-0000
               </p>
             </div>
           </div>
 
           {/* nav */}
           <div className="lg:col-span-3">
-            <h4 className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-faint">Navigate</h4>
+            <h3 className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-faint">Navigate</h3>
             <ul className="flex flex-col gap-2.5">
               {NAV.map((n) => (
                 <li key={n.href}>
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* services */}
           <div className="lg:col-span-3">
-            <h4 className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-faint">Services</h4>
+            <h3 className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-faint">Services</h3>
             <ul className="flex flex-col gap-2.5">
               {SERVICES.map((s, i) => (
                 <li key={s}>
@@ -89,7 +89,7 @@ export default function Footer() {
 
           {/* social */}
           <div className="lg:col-span-2">
-            <h4 className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-faint">Follow</h4>
+            <h3 className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-faint">Follow</h3>
             <ul className="flex flex-col gap-2.5">
               {SOCIAL.map((s) => (
                 <li key={s.label}>

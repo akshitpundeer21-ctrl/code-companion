@@ -48,7 +48,7 @@ export default function MagneticButton({
     variant === "primary" &&
       "bg-cream text-ink-2 hover:bg-cream-dim",
     variant === "accent" &&
-      "bg-cream text-ink-2 shadow-[0_14px_36px_-18px_rgba(0,0,0,0.8)] hover:bg-accent hover:text-white",
+      "bg-cream text-ink-2 shadow-[0_14px_36px_-18px_rgba(0,0,0,0.8)] hover:bg-accent-strong hover:text-white",
     variant === "ghost" &&
       "border border-line bg-white/60 text-cream backdrop-blur hover:border-cream/30 hover:bg-white",
     className

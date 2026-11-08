@@ -130,7 +130,7 @@ export default function AIChatDemo() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
-                      className={cn("max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed", m.from === "ai" ? "self-start bg-panel-2 text-cream-dim" : "self-end bg-accent text-ink")}
+                      className={cn("max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed", m.from === "ai" ? "self-start bg-panel-2 text-cream-dim" : "self-end bg-accent-strong text-white")}
                     >
                       {m.text}
                     </motion.div>

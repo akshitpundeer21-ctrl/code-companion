@@ -89,11 +89,15 @@ function SiteMockup({ p }: { p: Project }) {
         src={p.image}
         alt=""
         aria-hidden="true"
+        width={1896}
+        height={860}
         className="absolute inset-0 h-full w-full scale-110 object-cover object-bottom blur-2xl"
       />
       <img
         src={p.image}
         alt={`${p.name} — ${p.industry} website`}
+        width={1896}
+        height={860}
         className="relative block h-auto w-full [mask-image:linear-gradient(to_bottom,#000_80%,transparent)]"
         loading="lazy"
       />
@@ -113,7 +117,14 @@ function SiteMockup({ p }: { p: Project }) {
     </>
   ) : (
     <>
-      <img src={p.image} alt={`${p.name} — ${p.industry} website`} className="h-full w-full object-cover" loading="lazy" />
+      <img
+        src={p.image}
+        alt={`${p.name} — ${p.industry} website`}
+        width={1000}
+        height={700}
+        className="h-full w-full object-cover"
+        loading="lazy"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
       {/* fake nav */}
       <div className="absolute inset-x-0 top-0 flex items-center justify-between px-5 py-4">
@@ -150,11 +161,11 @@ function SiteMockup({ p }: { p: Project }) {
             rel="noopener noreferrer"
             className="ml-3 flex flex-1 items-center gap-1.5 rounded-md bg-ink px-3 py-1 text-[0.65rem] text-muted transition-colors hover:text-cream"
           >
-            <span className="text-accent">🔒</span> {p.domain}
+            <span className="text-accent-ink">🔒</span> {p.domain}
           </a>
         ) : (
           <div className="ml-3 flex flex-1 items-center gap-1.5 rounded-md bg-ink px-3 py-1 text-[0.65rem] text-muted">
-            <span className="text-accent">🔒</span> {p.domain}
+            <span className="text-accent-ink">🔒</span> {p.domain}
           </div>
         )}
         <span className="rounded-full border border-line px-2 py-0.5 text-[0.55rem] text-muted">{p.link ? "live site" : "sample"}</span>
@@ -225,7 +236,7 @@ export default function Portfolio() {
                         <h3 className={cn("text-lg font-medium", on ? "text-cream" : "text-cream-dim")}>{proj.name}</h3>
                         <span className="text-xs text-muted">{proj.industry}</span>
                       </div>
-                      <div className={cn("mt-2 flex flex-wrap gap-1.5 transition-all", on ? "opacity-100" : "opacity-60")}>
+                      <div className={cn("mt-2 flex flex-wrap gap-1.5 transition-all", on ? "opacity-100" : "opacity-80")}>
                         {proj.services.map((s) => (
                           <span key={s} className="rounded-full border border-line bg-ink/40 px-2 py-0.5 text-[0.62rem] text-cream-dim">{s}</span>
                         ))}

@@ -17,7 +17,7 @@ export default function Ticker() {
         {row.map((item, i) => (
           <span key={i} className="flex items-center gap-10 text-sm uppercase tracking-[0.22em] text-cream-dim">
             {item}
-            <span className="text-accent">✦</span>
+            <span className="text-accent-ink">✦</span>
           </span>
         ))}
       </div>

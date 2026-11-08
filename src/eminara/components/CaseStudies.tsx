@@ -64,7 +64,7 @@ export default function CaseStudies() {
                   </div>
 
                   <div>
-                    <p className="mb-2 flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.2em] text-accent">
+                    <p className="mb-2 flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.2em] text-accent-ink">
                       <span className="h-px w-4 bg-accent" /> Solution
                     </p>
                     <p className="text-sm leading-relaxed text-cream">{c.solution}</p>
@@ -86,7 +86,7 @@ export default function CaseStudies() {
                           href={c.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[0.7rem] font-medium text-accent transition-colors hover:text-cream"
+                          className="text-[0.7rem] font-medium text-accent-ink transition-colors hover:text-cream"
                         >
                           Visit site →
                         </a>

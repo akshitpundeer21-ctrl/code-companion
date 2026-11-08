@@ -55,12 +55,12 @@ export default function Navbar() {
         aria-hidden="true"
       />
 
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      {/* A CSS entrance, so the bar is there from the first paint rather than
+          after the page's JavaScript loads. */}
+      <header
         className={cn(
-          "fixed inset-x-0 top-3 z-50 px-4 transition-all duration-500 sm:top-5"
+          "fixed inset-x-0 top-3 z-50 px-4 transition-all duration-500 sm:top-5",
+          "animate-[fade-down_0.8s_cubic-bezier(0.16,1,0.3,1)_both]",
         )}
       >
         <div
@@ -103,7 +103,7 @@ export default function Navbar() {
                 href="https://calendly.com/akshitpundeer/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={dark ? "bg-white text-[#0b0b0d] hover:bg-accent hover:text-white" : ""}
+                className={dark ? "bg-white text-[#0b0b0d] hover:bg-accent-strong hover:text-white" : ""}
               >
                 Book a Call
                 <svg
@@ -158,7 +158,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Full-screen mobile menu */}
       <AnimatePresence>

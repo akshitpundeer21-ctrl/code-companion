@@ -110,10 +110,10 @@ function VisualAutomation() {
 
         <div className="absolute left-1/2 top-[51.4%] flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
           <span className="absolute h-20 w-20 animate-ping rounded-full bg-accent/10 sm:h-28 sm:w-28" />
-          <span className="relative flex h-[4.5rem] w-[4.5rem] flex-col items-center justify-center rounded-full bg-accent text-white shadow-lg sm:h-24 sm:w-24">
+          <span className="relative flex h-[4.5rem] w-[4.5rem] flex-col items-center justify-center rounded-full bg-accent-strong text-white shadow-lg sm:h-24 sm:w-24">
             <Cpu className="h-5 w-5 sm:h-6 sm:w-6" />
             <span className="mt-1 text-[0.6rem] font-medium sm:text-[0.65rem]">Emi core</span>
-            <span className="text-[0.5rem] opacity-80 sm:text-[0.55rem]">1,000 agents</span>
+            <span className="text-[0.5rem] sm:text-[0.55rem]">1,000 agents</span>
           </span>
         </div>
 
@@ -125,7 +125,7 @@ function VisualAutomation() {
           >
             <p className="whitespace-nowrap text-[0.7rem] font-medium text-cream sm:text-xs">{u.name}</p>
             <p className="whitespace-nowrap text-[0.55rem] text-muted sm:text-[0.6rem]">
-              {u.agents} agents · <span className="text-accent">{u.tasks}/day</span>
+              {u.agents} agents · <span className="text-accent-ink">{u.tasks}/day</span>
             </p>
           </div>
         ))}
@@ -362,7 +362,7 @@ function Inbox({ inbox, beat }: { inbox: (typeof INBOXES)[number]; beat: number 
       <div className="flex h-[12rem] flex-col justify-end gap-1.5 overflow-hidden bg-panel-2 p-2 sm:h-[9.5rem] sm:p-2.5">
         {shown.map((l, i) =>
           l === "typing" ? (
-            <span key={`t${i}`} className="flex gap-1 self-end rounded-xl bg-accent px-2.5 py-2 text-white" style={chatIn} aria-hidden="true">
+            <span key={`t${i}`} className="flex gap-1 self-end rounded-xl bg-accent-strong px-2.5 py-2 text-white" style={chatIn} aria-hidden="true">
               {[0, 1, 2].map((d) => (
                 <span key={d} className="h-1 w-1 animate-pulse rounded-full bg-current opacity-70" style={{ animationDelay: `${d * 0.2}s` }} />
               ))}
@@ -382,7 +382,7 @@ function Inbox({ inbox, beat }: { inbox: (typeof INBOXES)[number]; beat: number 
                 "max-w-[88%] rounded-xl px-2.5 py-1.5 text-[0.6rem] leading-snug shadow-[0_1px_0_rgba(0,0,0,0.04)]",
                 l.from === "them"
                   ? "self-start rounded-bl-sm bg-panel text-cream-dim ring-1 ring-line-soft"
-                  : "self-end rounded-br-sm bg-accent text-white",
+                  : "self-end rounded-br-sm bg-accent-strong text-white",
               )}
               style={chatIn}
             >
@@ -420,7 +420,7 @@ function VisualChat() {
         <span className="inline-flex items-center gap-2 text-xs font-medium text-cream">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#22c55e]" /> One AI, every inbox
         </span>
-        <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-[0.65rem] font-medium tabular-nums text-accent">
+        <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-[0.65rem] font-medium tabular-nums text-accent-ink">
           {(1284 + tick).toLocaleString("en-US")} chats today
         </span>
       </div>
@@ -432,7 +432,7 @@ function VisualChat() {
         {/* The one AI behind all four inboxes. */}
         <span className="pointer-events-none absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
           <span className="absolute h-14 w-14 animate-ping rounded-full bg-accent/10 sm:h-16 sm:w-16" />
-          <span className="relative flex h-11 w-11 flex-col items-center justify-center rounded-full border-4 border-ink bg-accent text-[0.55rem] font-semibold text-white shadow-[0_8px_24px_-6px_rgba(255,47,146,0.6)] sm:h-16 sm:w-16 sm:text-[0.6rem]">
+          <span className="relative flex h-11 w-11 flex-col items-center justify-center rounded-full border-4 border-ink bg-accent-strong text-[0.55rem] font-semibold text-white shadow-[0_8px_24px_-6px_rgba(255,47,146,0.6)] sm:h-16 sm:w-16 sm:text-[0.6rem]">
             <Sparkles className="h-3 w-3 sm:h-4 sm:w-4" /> Emi
           </span>
         </span>
@@ -492,6 +492,8 @@ function NewEstateSite() {
       <img
         src="https://images.pexels.com/photos/7031604/pexels-photo-7031604.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=700&w=1000"
         alt=""
+        width={1000}
+        height={700}
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent" />
@@ -503,12 +505,12 @@ function NewEstateSite() {
             <span className="hidden sm:inline">Buy</span>
             <span className="hidden sm:inline">Sell</span>
             <span className="hidden sm:inline">Rent</span>
-            <span className="rounded-full bg-accent px-2.5 py-1 font-medium text-white">Book a viewing</span>
+            <span className="rounded-full bg-accent-strong px-2.5 py-1 font-medium text-white">Book a viewing</span>
           </span>
         </div>
         <div className="mt-auto ml-auto max-w-[48%] text-right">
           <p className="text-base font-medium leading-[1.05] tracking-[-0.03em] sm:text-2xl">Find your next home.</p>
-          <span className="mt-2 inline-block rounded-full bg-accent px-3 py-1.5 text-[0.55rem] font-medium sm:mt-3 sm:text-[0.6rem]">Book a viewing →</span>
+          <span className="mt-2 inline-block rounded-full bg-accent-strong px-3 py-1.5 text-[0.55rem] font-medium sm:mt-3 sm:text-[0.6rem]">Book a viewing →</span>
         </div>
       </div>
       {/* Too crowded at phone width, where the headline needs the room. */}
@@ -542,7 +544,7 @@ function VisualWeb() {
           after={<NewEstateSite />}
         >
           <span className="absolute top-2 left-2 rounded-full bg-black/70 px-2 py-0.5 text-[0.55rem] font-medium uppercase tracking-wide text-white">Before</span>
-          <span className="absolute top-2 right-2 rounded-full bg-accent px-2 py-0.5 text-[0.55rem] font-medium uppercase tracking-wide text-white">After</span>
+          <span className="absolute top-2 right-2 rounded-full bg-accent-strong px-2 py-0.5 text-[0.55rem] font-medium uppercase tracking-wide text-white">After</span>
         </BeforeAfter>
       </div>
       <p className="text-center text-xs text-muted">Same business. A site that finally looks as good as it performs.</p>
@@ -638,7 +640,7 @@ function VisualVideo() {
           </div>
           <div className="absolute inset-x-3 bottom-3 text-white">
             <p className="pr-8 text-[0.6rem] leading-snug">{reel.caption}</p>
-            <span className="mt-2 block rounded-md bg-accent py-1.5 text-center text-[0.6rem] font-semibold">Shop now</span>
+            <span className="mt-2 block rounded-md bg-accent-strong py-1.5 text-center text-[0.6rem] font-semibold">Shop now</span>
           </div>
         </div>
       </div>
@@ -711,12 +713,12 @@ export default function Services() {
                     >
                       <div className="flex items-center justify-between gap-4">
                         <div className="flex items-baseline gap-5">
-                          <span className={cn("text-xs tracking-widest", on ? "text-accent" : "text-faint")}>{s.num}</span>
+                          <span className={cn("text-xs tracking-widest", on ? "text-accent-ink" : "text-faint")}>{s.num}</span>
                           <h3 className={cn("text-2xl font-medium transition-colors duration-300 sm:text-[1.7rem]", on ? "text-cream" : "text-cream-dim group-hover:text-cream")}>
                             {s.name}
                           </h3>
                         </div>
-                        <span className={cn("h-8 w-8 shrink-0 rounded-full border flex items-center justify-center text-sm transition-all duration-300", on ? "border-accent bg-accent text-ink rotate-0" : "border-line text-faint rotate-45 group-hover:border-cream/40")}>
+                        <span className={cn("h-8 w-8 shrink-0 rounded-full border flex items-center justify-center text-sm transition-all duration-300", on ? "border-accent bg-accent-strong text-white rotate-0" : "border-line text-faint rotate-45 group-hover:border-cream/40")}>
                           {on ? "↓" : "+"}
                         </span>
                       </div>

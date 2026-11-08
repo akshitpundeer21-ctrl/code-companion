@@ -53,7 +53,7 @@ export default function Process() {
                     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                     className="relative rounded-2xl border border-line bg-panel p-6 pl-16"
                   >
-                    <span className="absolute left-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ink font-display text-sm font-semibold text-accent">
+                    <span className="absolute left-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-ink font-display text-sm font-semibold text-accent-ink">
                       {s.num}
                     </span>
                     <h3 className="text-xl font-medium text-cream sm:text-2xl">{s.title}</h3>

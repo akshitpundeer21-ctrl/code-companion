@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import MagneticButton from "./ui/MagneticButton";
 import HeroCore, { type MobileCore, type Tone } from "./HeroCore";
 import { scrollToId } from "../lib/smooth-scroll";
@@ -26,33 +25,27 @@ export const INDUSTRIES = [
   "Professional services",
 ];
 
+/*
+ * The hero's entrances are plain CSS animations (keyframes in styles.css), so
+ * they start with the first paint instead of waiting for the page's JavaScript.
+ * This copy is the largest thing on screen, and holding it back until hydration
+ * was what made Largest Contentful Paint slow on phones.
+ */
+const RISE = "animate-[rise-in_0.9s_cubic-bezier(0.16,1,0.3,1)_both]";
+const FADE_UP = "animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_both]";
+
 function Words({ text, className }: { text: string; className?: string }) {
-  const reduce = useReducedMotion();
+  const words = text.split(" ");
   return (
     <span className={className}>
-      {text.split(" ").map((w, i) => (
+      {words.map((w, i) => (
         // The tight line height would clip descenders (the g in "bookings"), so the
         // mask reaches a little below the line without changing the spacing.
         <span key={i} className="-mb-[0.14em] inline-block overflow-hidden pb-[0.14em] align-bottom">
-          {/* The start state must match the server's HTML, so reduced motion
-              only changes the timing: the words appear in place at once. */}
-          <motion.span
-            className="inline-block"
-            initial={{ y: "125%" }}
-            animate={{ y: 0 }}
-            transition={
-              reduce
-                ? { duration: 0 }
-                : {
-                    duration: 0.9,
-                    delay: 0.1 + i * 0.07,
-                    ease: [0.16, 1, 0.3, 1],
-                  }
-            }
-          >
+          <span className={cn("inline-block", RISE)} style={{ animationDelay: `${0.1 + i * 0.07}s` }}>
             {w}
-          </motion.span>
-          {i < text.split(" ").length - 1 && <span>&nbsp;</span>}
+          </span>
+          {i < words.length - 1 && <span>&nbsp;</span>}
         </span>
       ))}
     </span>
@@ -159,19 +152,17 @@ export default function Hero({
         )}
       >
         <div ref={copy} className="max-w-xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          <p
             className={cn(
               "mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs backdrop-blur",
+              FADE_UP,
               c.badge,
               background && "mb-5 sm:mb-6",
             )}
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
             {t.badge}
-          </motion.p>
+          </p>
 
           <h1
             className={cn(
@@ -185,31 +176,29 @@ export default function Hero({
             <Words text={t.accent} className="font-serif-italic text-accent" />
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          {/* The largest text on a phone, so it starts early. */}
+          <p
+            style={{ animationDelay: "0.3s" }}
             className={cn(
               "mt-6 max-w-md text-base leading-relaxed sm:text-lg",
+              FADE_UP,
               c.body,
               background && "mt-5 text-[0.95rem] leading-relaxed sm:mt-6",
             )}
           >
             {t.intro}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className={cn("mt-8 flex flex-col gap-3 sm:flex-row", background && "mt-7 sm:mt-8")}
+          <div
+            style={{ animationDelay: "0.45s" }}
+            className={cn("mt-8 flex flex-col gap-3 sm:flex-row", FADE_UP, background && "mt-7 sm:mt-8")}
           >
             <MagneticButton
               href="#contact"
               size="lg"
               variant="accent"
               className={cn(
-                "bg-accent text-white shadow-[0_14px_36px_-18px_rgba(255,47,146,0.9)]",
+                "bg-accent-strong text-white shadow-[0_14px_36px_-18px_rgba(255,47,146,0.9)]",
                 c.primary,
                 background && "py-3.5 sm:py-4",
               )}
@@ -238,18 +227,16 @@ export default function Hero({
             >
               Explore Our Work
             </MagneticButton>
-          </motion.div>
+          </div>
 
         </div>
       </div>
 
       {/* Industries we work with, running along the bottom edge. */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.9, duration: 0.9 }}
+      <div
         className={cn(
           "absolute inset-x-0 bottom-0 overflow-hidden border-t py-4 backdrop-blur-sm [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]",
+          "animate-[fade-in_0.9s_ease_0.9s_both]",
           c.ticker,
         )}
       >
@@ -274,7 +261,7 @@ export default function Hero({
             </ul>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

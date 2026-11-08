@@ -104,7 +104,7 @@ export default function VoiceAgentDemo() {
                         transition={{ duration: 0.35 }}
                         className="flex items-start gap-2"
                       >
-                        <span className={cn("mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[0.6rem] font-medium", current.actor === "Emi" ? "bg-accent text-ink" : "bg-panel-2 text-cream-dim")}>
+                        <span className={cn("mt-0.5 shrink-0 rounded px-1.5 py-0.5 text-[0.6rem] font-medium", current.actor === "Emi" ? "bg-accent-strong text-white" : "bg-panel-2 text-cream-dim")}>
                           {current.actor === "Emi" ? "AI" : "Caller"}
                         </span>
                         <p className="text-xs leading-relaxed text-cream-dim">{current.text}</p>
@@ -116,7 +116,7 @@ export default function VoiceAgentDemo() {
                   <div className="mt-5 flex items-center justify-center gap-4">
                     <button
                       onClick={start}
-                      className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-ink transition-transform hover:scale-105"
+                      className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-strong text-white transition-transform hover:scale-105"
                       aria-label="Start demo call"
                     >
                       {playing ? (

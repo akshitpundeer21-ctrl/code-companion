@@ -523,6 +523,8 @@ export function MoltenRingCarousel({
   const onSelectRef = React.useRef(onSelect);
   onSelectRef.current = onSelect;
   const [active, setActive] = React.useState(0);
+  // Option ids must be unique even with two rings on a page.
+  const uid = React.useId();
   const [reduced, setReduced] = React.useState(false);
   const [supported, setSupported] = React.useState(true);
 
@@ -1125,7 +1127,7 @@ export function MoltenRingCarousel({
         tabIndex={0}
         role="listbox"
         aria-label={brand ?? "Gallery"}
-        aria-activedescendant={`molten-ring-${active}`}
+        aria-activedescendant={`${uid}-${active}`}
         className={cn(
           // Phones keep a strip clear beneath the ring for the caption.
           "text-foreground focus-visible:outline-foreground absolute top-0 left-0 h-[calc(100%-4.5rem)] w-full cursor-grab outline-none focus-visible:outline-2 focus-visible:-outline-offset-4 active:cursor-grabbing sm:h-full",
@@ -1139,24 +1141,18 @@ export function MoltenRingCarousel({
           else return;
           event.preventDefault();
         }}
-      />
-
-      {/* Everything visible is painted into the canvas, so assistive technology
-          and keyboard users are given this equivalent instead: the same entries
-          in the same sequence. */}
-      <ul className="sr-only">
+      >
+        {/* Everything visible is painted into the canvas, so assistive technology
+            and AI agents get the same entries in the same order as the canvas's
+            fallback content. Inside the listbox, the options have the parent
+            their role requires, which a list beside it did not. */}
         {items.map((entry, i) => (
-          <li
-            key={entry.image}
-            id={`molten-ring-${i}`}
-            role="option"
-            aria-selected={i === active}
-          >
+          <div key={entry.image} id={`${uid}-${i}`} role="option" aria-selected={i === active}>
             {entry.title}
             {entry.meta ? `. ${entry.meta}` : ""}
-          </li>
+          </div>
         ))}
-      </ul>
+      </canvas>
 
       {brand ? (
         <div className="pointer-events-none absolute top-[6%] left-[5%] text-sm font-medium tracking-tight">

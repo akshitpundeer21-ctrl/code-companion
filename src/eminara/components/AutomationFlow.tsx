@@ -93,7 +93,7 @@ export default function AutomationFlow() {
                           {s.detail}
                         </motion.span>
                       </span>
-                      <span className="ml-auto text-[0.6rem]" style={{ color: on ? "var(--color-accent)" : "var(--color-faint)" }}>
+                      <span className="ml-auto text-[0.6rem]" style={{ color: on ? "var(--color-accent-ink)" : "var(--color-faint)" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
                     </button>
@@ -119,7 +119,7 @@ export default function AutomationFlow() {
                       transition={{ duration: 0.4 }}
                       className="flex flex-col gap-4"
                     >
-                      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-2xl text-ink">
+                      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-strong text-2xl text-white">
                         {current.icon}
                       </span>
                       <h3 className="text-2xl font-medium text-cream">{current.title}</h3>

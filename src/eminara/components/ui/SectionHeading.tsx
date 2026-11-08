@@ -30,7 +30,7 @@ export default function SectionHeading({
     >
       <Reveal>
         <span className="inline-flex items-center gap-3 text-[0.72rem] font-medium uppercase tracking-[0.28em] text-muted">
-          {index && <span className="text-accent">{index}</span>}
+          {index && <span className="text-accent-ink">{index}</span>}
           <span
             className={cn("h-px w-8", centered ? "bg-line" : "bg-accent")}
             aria-hidden="true"

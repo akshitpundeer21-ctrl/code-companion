@@ -158,10 +158,16 @@
   --color-line-soft: #e6e6e2;
   --color-cream: #0b0b0b;
   --color-cream-dim: #3b3b39;
-  --color-muted: #6e6e6a;
-  --color-faint: #a6a6a1;
-  --color-accent: #ff2f92;
+  /* Text greys, dark enough for 4.5:1 contrast on the ink background. */
+  --color-muted: #575753;
+  --color-faint: #686864;
+  /* A hair deeper than #ff2f92, so large pink text reaches 3:1 on ink. */
+  --color-accent: #f2288a;
   --color-accent-dim: #e01f7c;
+  /* Behind white text (buttons, chips): deep enough for 4.5:1. */
+  --color-accent-strong: #d81b77;
+  /* Small pink text, for 4.5:1 on ink, white and the soft pink panels. */
+  --color-accent-ink: #b81062;
   --color-accent-soft: rgba(255, 47, 146, 0.1);
   --color-lime: #3ee97a;
 
@@ -272,6 +278,21 @@
   scrollbar-width: none;
 }
 
+/* Hero and navbar entrances. CSS rather than JavaScript so they play from the
+   first paint; each animates from this state to the element's own. */
+@keyframes rise-in {
+  from { transform: translateY(125%); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+}
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-80px); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
 @keyframes ticker {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -301,6 +322,7 @@
   }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
